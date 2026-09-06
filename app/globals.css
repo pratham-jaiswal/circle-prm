@@ -1,8 +1,21 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f8fafc;
+  --foreground: #0f172a;
+  --muted: #475569;
+  --surface: #ffffff;
+  --border: rgba(148, 163, 184, 0.28);
+}
+
+.dark {
+  --background: #020617;
+  --foreground: #e2e8f0;
+  --muted: #94a3b8;
+  --surface: #0f172a;
+  --border: rgba(148, 163, 184, 0.2);
 }
 
 @theme inline {
@@ -12,15 +25,94 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+  background: var(--background);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), "Segoe UI", sans-serif;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::selection {
+  background: rgba(15, 23, 42, 0.12);
+  color: var(--foreground);
+}
+
+/* Keep adjacent rounded action buttons visually aligned in light mode only. */
+html:not(.dark) :is(button, a).rounded-2xl.bg-slate-100 {
+  background-color: #ffffff;
+  border-color: #e2e8f0;
+  color: #334155;
+}
+
+html:not(.dark) :is(button, a).rounded-2xl.hover\:bg-slate-200:hover {
+  background-color: #f8fafc;
+}
+
+.dark main:not(.theme-aware) :is(header, section, article).bg-white {
+  background-color: #0f172a;
+  border-color: #334155;
+  box-shadow: 0 18px 50px rgba(2, 6, 23, 0.3);
+}
+
+.dark main:not(.theme-aware) :is(input, textarea, select).bg-white {
+  background-color: #020617;
+  border-color: #334155;
+  color: #e2e8f0;
+}
+
+.dark main:not(.theme-aware) :is(input, textarea, select).bg-white::placeholder {
+  color: #64748b;
+}
+
+.dark main:not(.theme-aware) .bg-slate-50 {
+  background-color: #111827;
+}
+
+.dark main:not(.theme-aware) .border-slate-200 {
+  border-color: #334155;
+}
+
+.dark main:not(.theme-aware) .border-slate-300 {
+  border-color: #475569;
+}
+
+.dark main:not(.theme-aware) .text-slate-950,
+.dark main:not(.theme-aware) .text-slate-900,
+.dark main:not(.theme-aware) .text-slate-800 {
+  color: #f8fafc;
+}
+
+.dark main:not(.theme-aware) .text-slate-700 {
+  color: #cbd5e1;
+}
+
+.dark main:not(.theme-aware) .text-slate-600,
+.dark main:not(.theme-aware) .text-slate-500 {
+  color: #94a3b8;
+}
+
+.dark main:not(.theme-aware) .hover\:text-slate-950:hover {
+  color: #f8fafc;
+}
+
+.dark main:not(.theme-aware) .hover\:bg-slate-100:hover {
+  background-color: #1e293b;
+}
+
+.dark main:not(.theme-aware) .hover\:border-slate-300:hover {
+  border-color: #475569;
 }
