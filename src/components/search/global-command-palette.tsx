@@ -34,7 +34,7 @@ const quickAdd = [
 export function GlobalCommandPalette() {
   const pathname = usePathname();
   const router = useRouter();
-  const isDisabledRoute = pathname === "/sign-in";
+  const isDisabledRoute = pathname === "/sign-in" || pathname === "/";
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
   const [results, setResults] = useState<SearchItem[]>([]);

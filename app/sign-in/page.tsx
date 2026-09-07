@@ -8,7 +8,7 @@ export default async function SignInPage() {
   const session = await getSession();
 
   if (session?.user?.email && isEmailAllowed(session.user.email)) {
-    redirect("/");
+    redirect("/dashboard");
   }
 
   return (

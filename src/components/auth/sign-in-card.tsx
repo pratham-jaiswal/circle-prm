@@ -25,7 +25,7 @@ export function SignInCard() {
           onClick={async () => {
             setPending(true);
             try {
-              await authClient.signIn.social({ provider: "google", callbackURL: "/" });
+              await authClient.signIn.social({ provider: "google", callbackURL: "/dashboard" });
             } finally {
               setPending(false);
             }
