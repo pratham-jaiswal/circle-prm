@@ -60,7 +60,7 @@ export default async function PeoplePage({ searchParams }: PeoplePageProps) {
   return (
     <main className="min-h-screen bg-[var(--background)] px-6 py-8 sm:px-8 lg:px-12">
       <div className="mx-auto w-full max-w-6xl space-y-8">
-        <header className="flex flex-wrap items-center justify-between gap-4 rounded-3xl border border-slate-200 bg-white px-5 py-4 shadow-[0_12px_30px_rgba(15,23,42,0.06)]">
+        <header className="flex flex-col gap-4 rounded-3xl border border-slate-200 bg-white px-5 py-4 shadow-[0_12px_30px_rgba(15,23,42,0.06)] sm:flex-row sm:items-center sm:justify-between">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
               Circle PRM
@@ -69,7 +69,7 @@ export default async function PeoplePage({ searchParams }: PeoplePageProps) {
               People
             </h1>
           </div>
-          <div className="flex items-center gap-3">
+          <div className="flex flex-wrap items-center gap-3">
             <Link
               href="/dashboard"
               className="inline-flex items-center justify-center rounded-2xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-slate-300 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:border-slate-600 dark:hover:bg-slate-800"
@@ -89,7 +89,7 @@ export default async function PeoplePage({ searchParams }: PeoplePageProps) {
         <ActionNotice notice={params.notice} />
 
         <section className="rounded-[2rem] border border-slate-200 bg-white p-5 shadow-[0_18px_50px_rgba(15,23,42,0.06)]">
-          <form className="grid gap-3 md:grid-cols-4">
+          <form className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
             <input name="q" defaultValue={params.q ?? ""} placeholder="Search name, alias, tag..." className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900" />
             <input name="circle" defaultValue={params.circle ?? ""} placeholder="Circle" className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900" />
             <input name="relationship" defaultValue={params.relationship ?? ""} placeholder="Relationship" className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900" />
@@ -117,7 +117,7 @@ export default async function PeoplePage({ searchParams }: PeoplePageProps) {
               <option value="recently_added">Recently added</option>
               <option value="recently_updated">Recently updated</option>
             </select>
-            <div className="md:col-span-4 flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-2 sm:col-span-2 xl:col-span-4">
               <button type="submit" className="inline-flex items-center justify-center rounded-2xl border border-slate-200 bg-slate-100 px-4 py-2 text-sm font-semibold text-slate-900 transition hover:bg-slate-200 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:border-slate-600 dark:hover:bg-slate-800">Apply filters</button>
               <Link href="/people" className="inline-flex items-center justify-center rounded-2xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-slate-300 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:border-slate-600 dark:hover:bg-slate-800">Reset</Link>
             </div>
