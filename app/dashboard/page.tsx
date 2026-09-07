@@ -103,16 +103,16 @@ export default async function DashboardPage() {
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_left,_rgba(15,23,42,0.08),_transparent_36%),radial-gradient(circle_at_top_right,_rgba(37,99,235,0.10),_transparent_30%),linear-gradient(180deg,_#f8fafc_0%,_#eef2f7_100%)] dark:bg-[radial-gradient(circle_at_top_left,_rgba(59,130,246,0.16),_transparent_34%),radial-gradient(circle_at_top_right,_rgba(14,165,233,0.12),_transparent_28%),linear-gradient(180deg,_#020617_0%,_#0b1220_100%)]" />
 
       <div className="mx-auto flex min-h-[calc(100vh-4rem)] w-full max-w-7xl flex-col gap-8">
-        <header className="flex items-center justify-between rounded-3xl border border-slate-200/80 bg-white/80 px-5 py-4 shadow-[0_12px_30px_rgba(15,23,42,0.06)] backdrop-blur dark:border-slate-700 dark:bg-slate-900/70">
+        <header className="flex flex-col gap-4 rounded-3xl border border-slate-200/80 bg-white/80 px-5 py-4 shadow-[0_12px_30px_rgba(15,23,42,0.06)] backdrop-blur sm:flex-row sm:items-center sm:justify-between dark:border-slate-700 dark:bg-slate-900/70">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.24em] text-slate-500 dark:text-slate-400">
               Circle PRM
             </p>
             <h1 className="text-lg font-semibold tracking-tight text-slate-950 dark:text-slate-100">
-              Personal Relationship Manager
+              Dashboard
             </h1>
           </div>
-          <div className="flex items-center gap-3">
+          <div className="flex flex-wrap items-center gap-3">
             <div className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-sm font-medium text-slate-600 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300">
               Signed in as {session.user.email}
             </div>
@@ -123,15 +123,7 @@ export default async function DashboardPage() {
         <section className="grid flex-1 gap-6 lg:grid-cols-[1.4fr_0.9fr]">
           <div className="flex flex-col justify-between rounded-[2rem] border border-slate-200 bg-white p-8 shadow-[0_24px_70px_rgba(15,23,42,0.08)] sm:p-10 dark:border-slate-700 dark:bg-slate-900">
             <div className="space-y-6">
-              <div className="inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-sm font-medium text-slate-600 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300">
-                Private-first. User-scoped. Built to scale safely.
-              </div>
-
               <div className="space-y-4">
-                <h2 className="max-w-3xl text-4xl font-semibold tracking-tight text-slate-950 sm:text-5xl dark:text-slate-100">
-                  A focused personal CRM for people, notes, reminders, and
-                  relationships.
-                </h2>
                 <p className="max-w-2xl text-base leading-7 text-slate-600 sm:text-lg dark:text-slate-300">
                   Your workspace shows upcoming commitments, relationship rhythm, and recent knowledge so you can follow through consistently.
                 </p>
@@ -143,19 +135,25 @@ export default async function DashboardPage() {
                 href="/people"
                 className="inline-flex items-center justify-center rounded-2xl border border-slate-200 bg-slate-100 px-5 py-3 text-sm font-semibold text-slate-900 transition hover:bg-slate-200 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:border-slate-600 dark:hover:bg-slate-800"
               >
-                Open people
+                People
               </Link>
               <Link
                 href="/notes"
                 className="inline-flex items-center justify-center rounded-2xl border border-slate-200 bg-white px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-300 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:border-slate-600 dark:hover:bg-slate-800"
               >
-                Open notes
+                Notes
               </Link>
               <Link
                 href="/reminders/new"
                 className="inline-flex items-center justify-center rounded-2xl border border-slate-200 bg-white px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-300 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:border-slate-600 dark:hover:bg-slate-800"
               >
-                Quick add reminder
+                Add Reminder
+              </Link>
+              <Link
+                href="/interactions/new"
+                className="inline-flex items-center justify-center rounded-2xl border border-slate-200 bg-white px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-300 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:border-slate-600 dark:hover:bg-slate-800"
+              >
+                Log Interaction
               </Link>
             </div>
           </div>
@@ -163,7 +161,7 @@ export default async function DashboardPage() {
           <div className="grid gap-6">
             <section id="phase-1" className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-[0_18px_50px_rgba(15,23,42,0.06)] dark:border-slate-700 dark:bg-slate-900">
               <h3 className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400">Dashboard intelligence</h3>
-              <div className="mt-4 grid grid-cols-2 gap-3 text-sm">
+              <div className="mt-4 grid grid-cols-1 gap-3 text-sm sm:grid-cols-2">
                 <div className="rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-slate-700 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200">People: {people.length}</div>
                 <div className="rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-slate-700 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200">Notes: {notes.length}</div>
                 <div className="rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-slate-700 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200">Interactions: {interactions.length}</div>

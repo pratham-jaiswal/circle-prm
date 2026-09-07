@@ -71,6 +71,12 @@ export default async function RelationshipsPage({ searchParams }: RelationshipsP
               </Link>
             ))}
           </div>
+
+          {relationships.length === 0 ? (
+            <div className="mt-8 rounded-2xl border border-dashed border-slate-300 bg-slate-50 px-4 py-6 text-sm text-slate-600">
+              No relationships added yet.
+            </div>
+          ) : null}
         </section>
       </div>
     </main>
